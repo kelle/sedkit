@@ -39,14 +39,8 @@ def test_just_spectrum(seds, request):
     assert sed.mbol == (17.811, 0.003)
     assert np.isclose(sed.Lbol[0], 7.56290304e+27 * u.erg / u.s, rtol=0.05)
     assert np.isclose(sed.Lbol[1], 2.38246507e+26 * u.erg / u.s, rtol=0.05)
-    if seds == 'sub_spec':
-        assert sed.radius == (0.973 * u.Rjup, 0 * u.Rjup, 0 * u.Rjup)
-        assert np.isclose(sed.Teff[0], 684 * u.K, rtol=0.5)
-        assert sed.Teff[1] == (5 * u.K, 5 * u.K)
-    if seds == 'spec':
-        assert sed.radius == (0.1 * u.solRad, 0 * u.solRad, 0 * u.solRad)
-        assert np.isclose(sed.Teff[0], 684 * u.K, rtol=0.5)
-        assert sed.Teff[1] == (5 * u.K, 5 * u.K)
+    assert sed.radius is None
+    assert sed.Teff is None
     assert sed.logg is None
     assert sed.mass is None
 
