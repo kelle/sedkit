@@ -286,7 +286,7 @@ class Relation:
                 self.relations[rel_name] = full_rel
 
                 if y_upper is not None:
-                    return y_val, y_upper, y_lower, self.ref
+                    return y_val.round(3), y_upper.round(3), y_lower.round(3), self.ref
                 else:
                     return y_val, self.ref
 
